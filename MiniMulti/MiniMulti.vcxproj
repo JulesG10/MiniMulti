@@ -76,17 +76,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\dev\repos\finished_release\CNet\CNet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\dev\repos\release\CNet\CNet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
       <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>D:\dev\repos\finished_release\CNet\x64\Release\CNet.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\dev\repos\release\CNet\x64\Release\CNet.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "D:\dev\repos\finished_release\CNet\x64\Release\CNet.dll" $(OutputPath) /Y</Command>
+      <Command>xcopy "D:\dev\repos\release\CNet\x64\Release\CNet.dll" $(OutputPath) /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -97,7 +97,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\dev\repos\finished_release\CNet\CNet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\dev\repos\release\CNet\CNet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
       <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
@@ -106,10 +106,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>D:\dev\repos\finished_release\CNet\x64\Release\CNet.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\dev\repos\release\CNet\x64\Release\CNet.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "D:\dev\repos\finished_release\CNet\x64\Release\CNet.dll" $(OutputPath) /Y</Command>
+      <Command>xcopy "D:\dev\repos\release\CNet\x64\Release\CNet.dll" $(OutputPath) /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -118,17 +118,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\dev\repos\finished_release\CNet\CNet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\dev\repos\release\CNet\CNet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
       <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>D:\dev\repos\finished_release\CNet\x64\Release\CNet.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\dev\repos\release\CNet\x64\Release\CNet.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "D:\dev\repos\finished_release\CNet\x64\Release\CNet.dll" $(OutputPath) /Y</Command>
+      <Command>xcopy "D:\dev\repos\release\CNet\x64\Release\CNet.dll" $(OutputPath) /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,7 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\dev\repos\finished_release\CNet\CNet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\dev\repos\release\CNet\CNet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
       <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
@@ -148,10 +148,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>D:\dev\repos\finished_release\CNet\x64\Release\CNet.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\dev\repos\release\CNet\x64\Release\CNet.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "D:\dev\repos\finished_release\CNet\x64\Release\CNet.dll" $(OutputPath) /Y</Command>
+      <Command>xcopy "D:\dev\repos\release\CNet\x64\Release\CNet.dll" $(OutputPath) /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

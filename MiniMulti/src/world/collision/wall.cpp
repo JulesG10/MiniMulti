@@ -17,30 +17,31 @@ void Wall::UpdateFrame()
 
 Vector2 Wall::FixCollision(Vector2 p, Vector2 s)
 {
-    if (!this->CheckCollision(p, s))
-    {
-        return p;
-    }
-
     Vector2 fix = p;
+    float dx = std::abs(p.x + s.x / 2 - (this->wall.x + this->wall.width / 2));
+    float dy = std::abs(p.y + s.y / 2 - (this->wall.y + this->wall.height / 2));
 
-    if (p.x < this->wall.x && p.x + s.x >= this->wall.x)
+    if (dx > dy)
     {
-        fix.x = this->wall.x - s.x;
-
+        if (p.y < this->wall.y)
+        {
+            fix.y = this->wall.y - s.y;
+        }
+        else
+        {
+            fix.y = this->wall.y + this->wall.height;
+        }
     }
-    else if (p.x + s.x >= this->wall.x + this->wall.width && p.x <= this->wall.x + this->wall.width)
+    else
     {
-        fix.x = this->wall.x + this->wall.width;
-    }
-
-    if (p.y < this->wall.y && p.y + s.y >= this->wall.y)
-    {
-        fix.y = this->wall.y - s.y;
-    }
-    else if (p.y + s.y >= this->wall.y + this->wall.height && p.y <= this->wall.y + this->wall.height)
-    {
-        fix.y = this->wall.y + this->wall.height;
+        if (p.x < this->wall.x)
+        {
+            fix.x = this->wall.x - s.x;
+        }
+        else
+        {
+            fix.x = this->wall.x + this->wall.width;
+        }
     }
 
     return fix;

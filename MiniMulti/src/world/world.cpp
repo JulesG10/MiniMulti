@@ -54,21 +54,11 @@ void World::Init()
 
     Wall* w2 = new Wall({ 50, 0, 200, 20 });
     this->m_collisionobjs.push_back(w2);
+
 }
 
 void World::UpdateFrame()
 {
-    if (this->m_client->get_queue_size() > 0)
-    {
-        CNetBuffer buffer;
-        if (this->m_client->recieve(buffer) != CNetStatus::CNET_ERROR)
-        {
-            this->HandleNetData((NetData*)buffer);
-        }
-        buffer.clear();
-    }
-    
-
     this->camera.target = this->player->GetPosition();
     DrawRectangle(0, 0, $util->render_size().x, $util->render_size().y, RAYWHITE);
     BeginMode2D(this->camera);
@@ -116,6 +106,22 @@ void World::DrawGrid(Color c)
     }
 }
 
+void World::StartQueueThread()
+{
+    std::thread([&]() {
+        while (this->m_client->is_alive())
+        {
+            if (this->m_client->get_queue_size() > 0)
+            { 
+                CNetBuffer buffer;
+                this->m_client->recieve(buffer);
+                this->HandleNetData((NetData*)buffer);
+                buffer.clear();
+            }
+        }
+    }).detach();
+}
+
 void World::HandleNetData(NetData* data)
 {
     auto dtime = std::chrono::time_point<std::chrono::high_resolution_clock>() + std::chrono::milliseconds(data->time);
@@ -123,6 +129,7 @@ void World::HandleNetData(NetData* data)
     
     this->m_latency = std::chrono::duration_cast<std::chrono::milliseconds>(now - dtime).count();
 
+    this->m_mutex.lock();
     if (this->m_players.count(data->id) > 0)
     {
         this->m_players.at(data->id)->Set(data->object);
@@ -131,8 +138,7 @@ void World::HandleNetData(NetData* data)
         auto newplayer = std::pair<time_t, std::shared_ptr<PlayerNet>>(data->id, std::make_shared<PlayerNet>(this->player_animations, data->object));
         this->m_players.insert(newplayer);
     }
-
-    
+    this->m_mutex.unlock();
 }
 
 void World::UpdateNetDate()

@@ -222,6 +222,7 @@ void Game::LoadingFrame()
                     if (this->m_clientStatus == CNetStatus::CNET_OK)
                     {
                         this->m_loadingPage = false;
+                        this->m_world->StartQueueThread();
                     }
                     else
                     {

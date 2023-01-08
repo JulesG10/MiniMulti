@@ -16,6 +16,7 @@ public:
     ~World();
 
     void Init();
+    void StartQueueThread();
     void UpdateFrame();
 private:
     void HandleNetData(NetData*);
@@ -36,6 +37,8 @@ private:
     std::vector<Collision*> m_collisionobjs;
     std::shared_ptr<CNetClient> m_client;
     
+    std::mutex m_mutex;
+
     time_t m_clientId;
     int m_clientTime;
     long long m_latency;
